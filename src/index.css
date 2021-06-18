@@ -1,0 +1,13 @@
+body {
+    margin: 50px;
+    padding: 50px;
+}
+
+div {
+    background-color: teal;
+}
+
+img {
+    width: 640px;
+    height: 426px;
+}
