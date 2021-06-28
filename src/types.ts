@@ -1,5 +1,5 @@
-export type ProfileType = {
-    name: string;
-    imageUrl: string
+export type UserType = {
+    email: string,
+    name: string,
+    picture: string
 };
-

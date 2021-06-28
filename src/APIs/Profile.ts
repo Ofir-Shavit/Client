@@ -1,12 +1,13 @@
-import axios, {AxiosResponse} from 'axios';
-import {ProfileType} from '../types';
+import axios from 'axios';
 
-async function fetchProfile(): Promise<ProfileType> {
+import config from '../../config/config';
+import {UserType} from '../types';
 
-    const response: AxiosResponse<ProfileType> = await axios.get<ProfileType>('http://localhost:8080/profile');
+async function fetchUser(tokenId: string): Promise<UserType> {
+
+    const response = await axios.post(`http://${config.api}/auth`, {tokenId});
 
     return response.data;
 }
 
-export {fetchProfile};
-
+export {fetchUser};

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/index.tsx',
@@ -38,7 +39,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpg|gif|svg)$/i,
                 use: [
                     {
                         loader: 'url-loader',
@@ -54,8 +55,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: __dirname + '/src/index.html',
             filename: 'index.html',
-            inject: 'body'
-        })
+            inject: 'body',
+            favicon: './src/Assets/icon.ico'
+        }),
+        new Dotenv({path: './config/.env'})
     ],
     devServer: {
         port: 80,
